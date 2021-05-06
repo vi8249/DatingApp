@@ -1,0 +1,7 @@
+#navbarCollapse{
+    justify-content: flex-end ;
+}
+
+.dropdown-toggle, .dropdown-item {
+    cursor: pointer;
+}
