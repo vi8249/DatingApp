@@ -24,7 +24,7 @@ namespace API.Data
         public async Task<MemberDTO> GetMemberAsync(string username)
         {
             return await _context.Users
-                .Where(x => x.UserName == username)
+                .Where(x => x.Username == username)
                 .ProjectTo<MemberDTO>(_mapper.ConfigurationProvider) // select the properties what we want!
                 .SingleOrDefaultAsync();
         }
@@ -45,7 +45,7 @@ namespace API.Data
         {
             return await _context.Users
             .Include(p => p.Photos)
-            .SingleOrDefaultAsync(x => x.UserName == name);
+            .SingleOrDefaultAsync(x => x.Username == name);
         }
 
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
