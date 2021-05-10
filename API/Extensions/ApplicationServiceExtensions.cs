@@ -13,7 +13,9 @@ namespace API.Extensions
         //extending IServiceCollection
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config) // this: ref to itself
         {
+            services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
             services.AddScoped<ITokenService, TokenService>(); //service life cycle: create after http request, down after request ended.
+            services.AddScoped<IPhotoService, PhotoService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
