@@ -21,10 +21,7 @@ namespace API.Entities
         public string City { get; set; }
         public string Country { get; set; }
         public ICollection<Photo> Photos { get; set; }
-
-        // public int GetAge() // automapper comes across GetXXX() will populate XXX field. 
-        // {
-        //     return DateOfBirth.CalculateAge();
-        // }
+        public ICollection<UserLike> LikedByUsers { get; set; } // members who like this AppUser
+        public ICollection<UserLike> LikedUsers { get; set; } // This AppUser likes
     }
 }
